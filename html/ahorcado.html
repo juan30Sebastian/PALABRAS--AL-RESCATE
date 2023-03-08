@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Adivina la palabra</title>
+    <link rel="stylesheet" href="../css/ahorcado.css">
+  </head>
+  <body>
+    <div class="boxTitulo"><h2 class="titulo">AHORCADO</h2></div>
+   <div class="boxPrincipal">
+    
+    <div class="boxImage"><img src="../images/Horcado1.png" class="image"></div>
+    
+    <div class="boxPrincipal2">
+    <p id="palabra"></p>
+    <div class="boxEdition">
+    <input type="text" id="letra" placeholder="Escribe una letra" maxlength="1" required>
+    <button onclick="verificarLetra()" class="ok">OK</button>
+    </div>
+    </div>
+   </div>
+    <div class="loader"><h2 id="tituloResul">Hola</h2><h3 class="subPerdiste"></h3><button id="btnDeNuevo">Nueva palabra</button><a href="../html/index.html" class="inicio">Inicio</a></div>
+   
+  <audio autoplay loop>
+  <source src="Musicafondo.mp3" type="audio/mpeg">
+  </audio>
+  
+    <script src="../js/ahorcado.js"></script>
+  </body>
+</html>
