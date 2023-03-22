@@ -1,7 +1,5 @@
 body{
-    background-image: url(../images/Cuadriculacuaderno.jpg);
-    background-position: center;
-    background-size: 30%;
+    background-color: #40CFFF;
     width: 100%;
     height: 100vh;
     display: flex;
@@ -10,65 +8,198 @@ body{
     flex-direction: column;
     overflow: hidden; 
   }
-   .boxTitulo{
+  .container {
     width: 100%;
-    height: 20%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+  .boxEyes {
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: ease 1s;
+    flex-direction: column;
+    transition: ease-in 1s;
+    position: fixed;
+    top: 0px;   
+    background-color: #40CFFF;
+    overflow: hidden;
+    z-index: 2;
   }
-   .boxTitulo .titulo{
-    color: black;
-    background: yellow;
-    padding: 1% 15%;
-    text-align: center;
+  .boxEye {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .loader {
     position: relative;
+    width: 108px;
+    display: flex;
+    justify-content: space-between;
   }
-  .boxTitulo .titulo::before {
-    content: "";
-    width: 50px;
-    height: 95%;
-    position: absolute;
-    right: 98%;
-    top: 5%;
-    background-image: linear-gradient(to right, #1C1C1C, black, #FFDBC4 50%);
-    border-radius: 35% 0% 0% 35%;
+  .loader::after , .loader::before  {
+    content: '';
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    background-color: #FFF;
+    background-image:  radial-gradient(circle 14px, #0d161b 100%, transparent 0);
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    animation: eyeMove 10s infinite , blink 10s infinite;
   }
-  .boxTitulo .titulo::after {
-    content: "";
-    width: 50px;
-    height: 95%;
-    position: absolute;
-    left: 100%;
-    top: 5%;
-    background-color: salmon;
-    border-radius: 0% 40% 40% 0%;
+  @keyframes eyeMove {
+    0%  , 10% {     background-position: 0px 0px}
+    13%  , 40% {     background-position: -15px 0px}
+    43%  , 70% {     background-position: 15px 0px}
+    73%  , 90% {     background-position: 0px 15px}
+    93%  , 100% {     background-position: 0px 0px}
   }
-  .boxPrincipal {
+  @keyframes blink {
+    0%  , 10% , 12% , 20%, 22%, 40%, 42% , 60%, 62%,  70%, 72% , 90%, 92%, 98% , 100%
+    { height: 48px}
+    11% , 21% ,41% , 61% , 71% , 91% , 99%
+    { height: 18px}
+  }
+  .boxTituloEyes {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #tituloResul {
+    color: salmon;
+     font-size: 3rem;
+     text-align: center;
+    transition: ease-in-out 1s;
+    font-family: 'Indie Flower', cursive;  
+    text-shadow: none;
+  }
+  .boxPuntuaciones {
+    width: 70%;
+    height: 60%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: ease-in 1s;
+    transform: translatey(1000px);
+  }
+  .puntuaciones {
     width: 100%;
     height: 80%;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    overflow: hidden;
   }
-  .boxPrincipal2 {
-    width: 40%;
-    height: 50%;
+  .boxPuntuacion {
+    width: 25%;
+    height: 80%;
+    background-image: url(../images/Cuadriculacuaderno.jpg);
+    background-size: 60%;
+    background-position: center;
+    box-shadow: -30px 10px 30px #1C1C1C;
+    border-radius: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+  }
+  .titulopuntuacion {
+    font-size: 2rem;
+    font-family: 'Indie Flower', cursive
+  }
+  .numberPuntuacion {
+    font-size: 3rem;
+    font-family: 'Indie Flower', cursive
+  }
+  .boxButtoms {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  #btnDeNuevo {
+    width: 45%;
+    height: 90%;
+    border-radius:5%;
+    background: #1C1C1C;
+    border: 0;
+    color: white;
+    font-size: 1.4rem;
+    box-shadow: -10px 5px 30px black;
+    cursor: pointer;
+  }
+  .inicio {
+   width: 45%;
+    height: 90%;
+    border-radius:5%;
+    background: #1C1C1C;
+    border: 0;
+    color: white;
+    font-size: 1.4rem;
+    box-shadow: -10px 5px 30px black;
+   text-align: center;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   text-decoration: none;  
+   cursor: pointer;
+   margin-top: 10px;
+ }
+  .boxPrincipal {
+    width: 100%;
+    height: 80%;
+    margin-top: 8rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  #boxPistas {
+    width: 30%;
+    height: 60%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    box-shadow: -30px 10px 20px black;
-    border-radius: 10%;
-    overflow: hidden;
-    background-color: white;
-    border: 3px solid black;
-    transition: ease 1s;
+    background-color:   brown;  
+    border: 5px solid #522900;
+    border-radius: 5%;
+  }
+  .subtituloCategoria {
+    font-size: 3rem;
+    color: white;
+    font-family: 'Indie Flower', cursive;
+  }
+  #palabra {
+    color: white;
+    font-size: 2rem;
+    font-family: 'Indie Flower', cursive;
+  }
+  #boxBook {
+    width: 30%;
+    height: 100%;
+    background-image: url(../images/Cuadriculacuaderno.jpg);
+    background-position: center;
+    background-size: 70%;
+    box-shadow: -40px 10px 60px #1C1C1C;
+    border-radius: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
   }
   .boxImage{
-    width: 40%;
+    width: 100%;
     height: 100%;
     overflow: hidden;
     display: flex;
@@ -76,8 +207,8 @@ body{
     align-items:center;
   }
    .boxImage .image{
-    width: 70%;
-    height: 90%;
+    width: 100%;
+    height: 100%;
     border: 0;
     border-radius: 10%;
     transition: ease-in 1s;
@@ -86,82 +217,891 @@ body{
     0%{transform: rotate(0deg);}
     100%{transform: rotate(360deg);}
   }
-   #palabra {
-    color:salmon;
-    font-size: 2.4rem;
-    padding: 10px 100px;
-    background-color: #1C1C1C;
-  }
-   .boxEdition {
-     width: 100%;
-     height: 50px;
-    display: flex;
-    justify-content:center;
-    align-items:center;
-   }
-   #letra{
-    width: 70%;
-    height: 100%;
-    text-align: center;
-    border: 3px solid black;
-    font-size: 1.2rem;
-    
-   }
-   .ok {
-    width: 20%;
-    height: 100%;
-    border: 0;
-    border: 3px solid black;
-    color: black;
-    font-size: 1.7rem;
-    cursor: pointer;
-  }
-   .loader {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 900px;
-    transition: ease-in 1s;
-    
+  #boxEdition {
+    width: 30%;
+    height: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-   }
-   .loader #tituloResul {
-    color:salmon;
-     font-size: 6rem;
-     text-align: center;
-   }
-   .loader .subPerdiste {
-    color:black;
-     font-size: 2rem;
-     text-align: center;
-   }
-   .loader #btnDeNuevo {
-     width: 30%;
-     height: 70px;
-     border-radius:15%;
-     background: black;
-     border: 0;
-     color: salmon;
-     font-size: 1.4rem;
-     box-shadow: -5px 5px 10px #1C1C1C;
-   }
-   .inicio {
-    width: 30%;
-     height: 70px;
-     border-radius:15%;
-     background: black;
-     border: 0;
-     color: salmon;
-     font-size: 1.4rem;
-     box-shadow: -5px 5px 10px #1C1C1C;
+  }
+  #letra{
+    width: 100%;
+    height: 50%;
     text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;  
+    border: 0px;
+    font-size: 1.6rem;
+    background-color: #1C1C1C;  
+    color: white;
+  }
+   .ok {
+    width: 100%;
+    height: 50%;
+    color: white;
+    font-size: 1.7rem;
     cursor: pointer;
-    margin-top: 10px;
+    background-color: #1C1C1C;
+  }
+  .boxMarcadorPistas {
+    width: 27%;
+    height: 150px;
+    border-radius: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 2%;
+    right: 2%;
+  }
+  .boxMarcador {
+    width: 40%;
+    height: 100%;
+    background-color: #1C1C1C;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  @keyframes animarNotificationIcon {
+    0%{border: solid 3px blue;}
+    100%{border: solid 3px transparent;}
+  }
+  .marcadorIcon {
+    width: 50%;
+    height: 50%;
+    transition: ease-in 0.5s;
+  }
+  .marcadorIcon:hover {
+    transform: rotatez(20deg);
+  }
+  
+
+  
+
+
+
+
+
+
+
+
+
+  @media only screen and (max-width: 1200px){
+       
+
+    .inicio {
+     width: 45%;
+      height: 90%;
+      border-radius:5%;
+      background: #1C1C1C;
+      border: 0;
+      color: white;
+      font-size: 1.4rem;
+      box-shadow: -10px 5px 30px black;
+     text-align: center;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     text-decoration: none;  
+     cursor: pointer;
+     margin-top: 10px;
+   }
+    .boxPrincipal {
+      width: 100%;
+      height: 80%;
+      margin-top: 8rem;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    #boxPistas {
+      width: 30%;
+      height: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background-color:   brown;  
+      border: 5px solid #522900;
+      border-radius: 5%;
+    }
+    .subtituloCategoria {
+      font-size: 2.8rem;
+      color: white;
+      font-family: 'Indie Flower', cursive;
+    }
+    #palabra {
+      color: white;
+      font-size: 1.8rem;
+      font-family: 'Indie Flower', cursive;
+    }
+    #boxBook {
+      width: 30%;
+      height: 95%;
+      background-image: url(../images/Cuadriculacuaderno.jpg);
+      background-position: center;
+      background-size: 70%;
+      box-shadow: -40px 10px 60px #1C1C1C;
+      border-radius: 5%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .boxImage{
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content:center;
+      align-items:center;
+    }
+     .boxImage .image{
+      width: 100%;
+      height: 100%;
+      border: 0;
+      border-radius: 10%;
+      transition: ease-in 1s;
+    }
+    @keyframes rotarImagen {
+      0%{transform: rotate(0deg);}
+      100%{transform: rotate(360deg);}
+    }
+    #boxEdition {
+      width: 30%;
+      height: 30%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    #letra{
+      width: 100%;
+      height: 50%;
+      text-align: center;
+      border: 0px;
+      font-size: 1.6rem;
+      background-color: #1C1C1C;  
+      color: white;
+    }
+     .ok {
+      width: 100%;
+      height: 50%;
+      color: white;
+      font-size: 1.7rem;
+      cursor: pointer;
+      background-color: #1C1C1C;
+    }
+    .boxMarcadorPistas {
+      width: 27%;
+      height: 130px;
+      border-radius: 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      position: fixed;
+      bottom: 2%;
+      right: 2%;
+    }
+    .boxMarcador {
+      width: 40%;
+      height: 100%;
+      background-color: #1C1C1C;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    @keyframes animarNotificationIcon {
+      0%{border: solid 3px orange;}
+      100%{border: solid 3px transparent;}
+    }
+    .marcadorIcon {
+      width: 50%;
+      height: 50%;
+      transition: ease-in 0.5s;
+
+    }
+    .marcadorIcon:hover {
+      transform: rotatez(20deg);
+    } 
+  }
+
+
+
+
+
+
+  @media only screen and (max-width: 1000px){
+
+    .boxPrincipal{
+      display: grid;
+      grid-template-columns: repeat(2, 50%);
+      grid-template-rows: repeat(2, 50%);
+      width: 100%;
+      height: 80%;
+    }
+
+    #tituloResul {
+      color: salmon;
+       font-size: 2.6rem;
+       text-align: center;
+      transition: ease-in-out 1s;
+      font-family: 'Indie Flower', cursive;  
+      text-shadow: none;
+    }
+    .boxPuntuaciones {
+      width: 90%;
+      height: 60%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      transition: ease-in 1s;
+      transform: translatey(1000px);
+    }
+    .puntuaciones {
+      width: 100%;
+      height: 80%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+    .boxPuntuacion {
+      width: 25%;
+      height: 80%;
+      background-image: url(../images/Cuadriculacuaderno.jpg);
+      background-size: 60%;
+      background-position: center;
+      box-shadow: -30px 10px 30px #1C1C1C;
+      border-radius: 10%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      flex-direction: column;
+    }
+    .titulopuntuacion {
+      font-size: 1.6rem;
+      font-family: 'Indie Flower', cursive
+    }
+    .numberPuntuacion {
+      font-size: 2.6rem;
+      font-family: 'Indie Flower', cursive
+    }
+    
+    .inicio {
+     width: 45%;
+      height: 90%;
+      border-radius:5%;
+      background: #1C1C1C;
+      border: 0;
+      color: white;
+      font-size: 1.4rem;
+      box-shadow: -10px 5px 30px black;
+     text-align: center;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     text-decoration: none;  
+     cursor: pointer;
+     margin-top: 10px;
+   }
+    
+    #boxPistas {
+      grid-column: 2;
+      grid-row: 1;
+      width: 100%;
+      height: 90%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background-color:   brown;  
+      border: 5px solid #522900;
+      border-radius: 5%;
+    }
+    .subtituloCategoria {
+      font-size: 3rem;
+      color: white;
+      font-family: 'Indie Flower', cursive;
+    }
+    #palabra {
+      color: white;
+      font-size: 2rem;
+      font-family: 'Indie Flower', cursive;
+    }
+    #boxBook {
+      grid-column: 1;
+      grid-row: span 2 ;
+      width: 95%;
+      height: 100%;
+      background-image: url(../images/Cuadriculacuaderno.jpg);
+      background-position: center;
+      background-size: 70%;
+      box-shadow: -40px 10px 60px #1C1C1C;
+      border-radius: 5%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .boxImage{
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content:center;
+      align-items:center;
+    }
+     .boxImage .image{
+      width: 100%;
+      height: 100%;
+      border: 0;
+      border-radius: 10%;
+      transition: ease-in 1s;
+    }
+    @keyframes rotarImagen {
+      0%{transform: rotate(0deg);}
+      100%{transform: rotate(360deg);}
+    }
+    #boxEdition {
+      grid-column: 2;
+      grid-row: 2;
+      width: 95%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    #letra{
+      width: 100%;
+      height: 50%;
+      text-align: center;
+      border: 0px;
+      font-size: 1.6rem;
+      background-color: #1C1C1C;  
+      color: white;
+    }
+     .ok {
+
+      width: 100%;
+      height: 50%;
+      color: white;
+      font-size: 1.7rem;
+      cursor: pointer;
+      background-color: #1C1C1C;
+    }
+    .boxMarcadorPistas {
+      width: 25%;
+      height: 100px;
+      border-radius: 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      position: fixed;
+      bottom: 2%;
+      left: 10%;
+    }
+    .boxMarcador {
+      width: 40%;
+      height: 100%;
+      background-color: #1C1C1C;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    @keyframes animarNotificationIcon {
+      0%{border: solid 3px blue;}
+      100%{border: solid 3px transparent;}
+    }
+    .marcadorIcon {
+      width: 50%;
+      height: 50%;
+      transition: ease-in 0.5s;
+    }
+    .marcadorIcon:hover {
+      transform: rotatez(20deg);
+    }
+
+
+  }
+  @media only screen and (max-width: 900px){
+    
+    #tituloResul {
+      color: salmon;
+       font-size: 2.6rem;
+       text-align: center;
+      transition: ease-in-out 1s;
+      font-family: 'Indie Flower', cursive;  
+      text-shadow: none;
+    }
+    .boxPuntuaciones {
+      width: 90%;
+      height: 60%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      transition: ease-in 1s;
+      transform: translatey(1000px);
+    }
+    .puntuaciones {
+      width: 100%;
+      height: 80%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+    .boxPuntuacion {
+      width: 25%;
+      height: 80%;
+      background-image: url(../images/Cuadriculacuaderno.jpg);
+      background-size: 60%;
+      background-position: center;
+      box-shadow: -30px 10px 30px #1C1C1C;
+      border-radius: 10%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      flex-direction: column;
+    }
+    .titulopuntuacion {
+      font-size: 1.6rem;
+      font-family: 'Indie Flower', cursive
+    }
+    .numberPuntuacion {
+      font-size: 2.6rem;
+      font-family: 'Indie Flower', cursive
+    }
+    
+    .inicio {
+     width: 45%;
+      height: 90%;
+      border-radius:5%;
+      background: #1C1C1C;
+      border: 0;
+      color: white;
+      font-size: 1.4rem;
+      box-shadow: -10px 5px 30px black;
+     text-align: center;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     text-decoration: none;  
+     cursor: pointer;
+     margin-top: 10px;
+   }
+    
+    #boxPistas {
+      grid-column: 2;
+      grid-row: 1;
+      width: 100%;
+      height: 90%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background-color:   brown;  
+      border: 5px solid #522900;
+      border-radius: 5%;
+    }
+    .subtituloCategoria {
+      font-size: 3rem;
+      color: white;
+      font-family: 'Indie Flower', cursive;
+    }
+    #palabra {
+      color: white;
+      font-size: 2rem;
+      font-family: 'Indie Flower', cursive;
+    }
+    #boxBook {
+      grid-column: 1;
+      grid-row: span 2 ;
+      width: 95%;
+      height: 100%;
+      background-image: url(../images/Cuadriculacuaderno.jpg);
+      background-position: center;
+      background-size: 70%;
+      box-shadow: -40px 10px 60px #1C1C1C;
+      border-radius: 5%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .boxImage{
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content:center;
+      align-items:center;
+    }
+     .boxImage .image{
+      width: 100%;
+      height: 100%;
+      border: 0;
+      border-radius: 10%;
+      transition: ease-in 1s;
+    }
+    @keyframes rotarImagen {
+      0%{transform: rotate(0deg);}
+      100%{transform: rotate(360deg);}
+    }
+    #boxEdition {
+      grid-column: 2;
+      grid-row: 2;
+      width: 95%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    #letra{
+      width: 100%;
+      height: 50%;
+      text-align: center;
+      border: 0px;
+      font-size: 1.6rem;
+      background-color: #1C1C1C;  
+      color: white;
+    }
+     .ok {
+      width: 100%;
+      height: 50%;
+      color: white;
+      font-size: 1.7rem;
+      cursor: pointer;
+      background-color: #1C1C1C;
+    }
+    .boxMarcadorPistas {
+      width: 25%;
+      height: 100px;
+      border-radius: 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      position: fixed;
+      bottom: 2%;
+      left: 10%;
+    }
+    .boxMarcador {
+      width: 40%;
+      height: 100%;
+      background-color: #1C1C1C;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    @keyframes animarNotificationIcon {
+      0%{border: solid 3px blue;}
+      100%{border: solid 3px transparent;}
+    }
+    .marcadorIcon {
+      width: 50%;
+      height: 50%;
+      transition: ease-in 0.5s;
+    }
+    .marcadorIcon:hover {
+      transform: rotatez(20deg);
+    }
+
+  }  
+
+
+
+
+
+
+
+
+
+  @media only screen and (max-width: 700px){
+   
+
+    .container {
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-direction: column;
+    }
+    .boxEyes {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      transition: ease-in 1s;
+      position: fixed;
+      top: 0px;
+      left: 0px;   
+      background-color: #40CFFF;
+      overflow: hidden;
+      z-index: 2;
+    }
+    .boxEye {
+      width: 100%;
+      height: 20%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .loader {
+      position: relative;
+      width: 70px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .loader::after , .loader::before  {
+      content: '';
+      display: inline-block;
+      width: 38px;
+      height: 48px;
+      background-color: #FFF;
+      background-image:  radial-gradient(circle 14px, #0d161b 100%, transparent 0);
+      background-repeat: no-repeat;
+      border-radius: 50%;
+      animation: eyeMove 10s infinite , blink 10s infinite;
+    }
+    @keyframes eyeMove {
+      0%  , 10% {     background-position: 0px 0px}
+      13%  , 40% {     background-position: -15px 0px}
+      43%  , 70% {     background-position: 15px 0px}
+      73%  , 90% {     background-position: 0px 15px}
+      93%  , 100% {     background-position: 0px 0px}
+    }
+    @keyframes blink {
+      0%  , 10% , 12% , 20%, 22%, 40%, 42% , 60%, 62%,  70%, 72% , 90%, 92%, 98% , 100%
+      { height: 48px}
+      11% , 21% ,41% , 61% , 71% , 91% , 99%
+      { height: 18px}
+    }
+    .boxTituloEyes {
+      width: 100%;
+      height: 10%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #tituloResul {
+      color: salmon;
+       font-size: 2rem;
+       text-align: center;
+      transition: ease-in-out 1s;
+      font-family: 'Indie Flower', cursive;  
+      text-shadow: none;
+    }
+    .boxPuntuaciones {
+      width: 90%;
+      height: 60%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      transition: ease-in 1s;
+      transform: translatey(1000px);
+    }
+    .puntuaciones {
+      width: 100%;
+      height: 80%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+    .boxPuntuacion {
+      width: 25%;
+      height: 60%;
+      background-image: url(../images/Cuadriculacuaderno.jpg);
+      background-size: 60%;
+      background-position: center;
+      box-shadow: -30px 10px 30px #1C1C1C;
+      border-radius: 10%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .titulopuntuacion {
+      font-size: 1rem;
+      font-family: 'Indie Flower', cursive
+    }
+    .numberPuntuacion {
+      font-size: 1.3rem;
+      font-family: 'Indie Flower', cursive
+    }
+    .boxButtoms {
+      width: 100%;
+      height: 20%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    #btnDeNuevo {
+      width: 45%;
+      height: 70%;
+      border-radius:5%;
+      background: #1C1C1C;
+      border: 0;
+      color: white;
+      font-size: 1.3rem;
+      box-shadow: -10px 5px 30px black;
+      cursor: pointer;
+    }
+    .inicio {
+     width: 45%;
+      height: 70%;
+      border-radius:5%;
+      background: #1C1C1C;
+      border: 0;
+      color: white;
+      font-size: 1.3rem;
+      box-shadow: -10px 5px 30px black;
+     text-align: center;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     text-decoration: none;  
+     cursor: pointer;
+     margin-top: 10px;
+   }
+    .boxPrincipal {
+      display: grid;
+      grid-template-columns: 100%;
+      grid-template-rows: 20% 70% 10%;      
+    }
+    #boxPistas {
+      grid-column: 1;
+      grid-row: 1;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-row;
+      flex-direction: row;
+      background-color:   brown;  
+      border: 5px solid #522900;
+      border-radius: 5%;
+      transition: ease 1s;
+    }
+    .subtituloCategoria {
+      font-size: 1.6rem;
+      color: white;
+      font-family: 'Indie Flower', cursive;
+    }
+    #palabra {
+      color: white;
+      font-size: 2rem;
+      font-family: 'Indie Flower', cursive;
+    }
+    #boxBook {
+      grid-column: 1;
+      grid-row: 2;
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .boxImage{
+      width: 50%;
+      height: 100%;
+      background-image: url(../images/Cuadriculacuaderno.jpg);
+      background-position: center;
+      background-size: 70%;
+      box-shadow: -40px 10px 60px #1C1C1C;
+      border-radius: 5%;
+      overflow: hidden;
+      display: flex;
+      justify-content:center;
+      align-items:center;
+    }
+     .boxImage .image{
+      width: 100%;
+      height: 100%;
+      border: 0;
+      border-radius: 10%;
+      transition: ease-in 1s;
+    }
+    @keyframes rotarImagen {
+      0%{transform: rotate(0deg);}
+      100%{transform: rotate(360deg);}
+    }
+    #boxEdition {
+      grid-column: 1;
+      grid-row: 3;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      background-color: red;
+    }
+    #letra{
+      width: 80%;
+      height: 100%;
+      text-align: center;
+      border: 0px;
+      font-size: 1.3rem;
+      background-color: #1C1C1C;  
+      color: white;
+    }
+     .ok {
+      width: 20%;
+      height: 100%;
+      color: white;
+      font-size: 1.3rem;
+      cursor: pointer;
+      background-color: #1C1C1C;
+    }
+    .boxMarcadorPistas {
+      width: 25%;
+      height: 110px;
+      border-radius: 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      flex-direction: column;
+      position: fixed;
+      top: 20rem;
+      left: -6%;
+    }
+    .boxMarcador {
+      width: 40%;
+      height: 100%;
+      background-color: #1C1C1C;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    @keyframes animarNotificationIcon {
+      0%{border: solid 3px blue;}
+      100%{border: solid 3px transparent;}
+    }
+    .marcadorIcon {
+      width: 50%;
+      height: 50%;
+      transition: ease-in 0.5s;
+    }
+    .marcadorIcon:hover {
+      transform: rotatez(20deg);
+    }
+
   }

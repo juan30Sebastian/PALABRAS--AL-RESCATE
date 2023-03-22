@@ -3,28 +3,48 @@
   <head>
     <meta charset="UTF-8">
     <title>Adivina la palabra</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/ahorcado.css">
   </head>
   <body>
-    <div class="boxTitulo"><h2 class="titulo">AHORCADO</h2></div>
-   <div class="boxPrincipal">
-    
-    <div class="boxImage"><img src="../images/Horcado1.png" class="image"></div>
-    
-    <div class="boxPrincipal2">
-    <p id="palabra"></p>
-    <div class="boxEdition">
-    <input type="text" id="letra" placeholder="Escribe una letra" maxlength="1" required>
-    <button onclick="verificarLetra()" class="ok">OK</button>
+    <div class="container">
+      <div class="boxEyes">
+       <div class="boxEye"><div class="loader"></div></div>
+        <div class="boxTituloEyes"><h1 id="tituloResul">!Hola!</h1></div>
+        <div class="boxPuntuaciones">
+          <div class="puntuaciones">
+            <div class="boxPuntuacion"><h2 class="titulopuntuacion">GANADAS</h2><h3 class="numberPuntuacion" id="numberGanadas">0</h3></div>
+            <div class="boxPuntuacion"><h2 class="titulopuntuacion">PERDIDAS</h2><h3 class="numberPuntuacion" id="numberPerdidas">0</h3></div>
+            <div class="boxPuntuacion"><h2 class="titulopuntuacion">ACERTADAS</h2><h3 class="numberPuntuacion" id="numberAcertadas">0</h3></div>
+          </div>
+          <div class="boxButtoms"><button id="btnDeNuevo">Nueva palabra</button><a href="../html/index.html" class="inicio">Inicio</a></div>
+        </div>
+      </div>
+    <div class="boxPrincipal">
+      <div id="boxPistas">
+        <h2 class="subtituloCategoria">Animales</h2>
+        <p id="palabra"></p>
+      </div>
+      <div id="boxBook">
+        <div class="boxImage"><img src="../images/Horcado1.png" class="image"></div>    
+      </div>
+      <div id="boxEdition">
+        <input type="text" id="letra" placeholder="Escribe una letra" maxlength="1" required>
+    <button onclick="verificarLetra()" class="ok">OK</button>    
+      </div>
     </div>
-    </div>
-   </div>
-    <div class="loader"><h2 id="tituloResul">Hola</h2><h3 class="subPerdiste"></h3><button id="btnDeNuevo">Nueva palabra</button><a href="../html/index.html" class="inicio">Inicio</a></div>
-   
-  <audio autoplay loop>
-  <source src="Musicafondo.mp3" type="audio/mpeg">
-  </audio>
+    
   
+  <div class="boxMarcadorPistas">
+    <div class="boxMarcador" id="borradorIcon"><img src="../images/Delateicon.png" alt="borrador" class="marcadorIcon"></div>
+    <div class="boxMarcador" id="penIcon"><img src="..//images/Penicon.png" alt="lápiz" class="marcadorIcon"></div>
+  </div>
+  </div>
+
+
+   <script src="../js/index.js"></script>
     <script src="../js/ahorcado.js"></script>
   </body>
 </html>
